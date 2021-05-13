@@ -53,6 +53,7 @@ class InvoiceTest {
 
     @BeforeAll
     public static void init () {
+        login.Login.getInstance ().authenticate ("user3", "3");
         customer = new Customer("Testklant", "Teststraat 15", "2282 CD", "DELFT");
         lines = new ArrayList<> ();
         lines.add (new InvoiceLine(2, new Product("Testproduct 1", 22.0)));

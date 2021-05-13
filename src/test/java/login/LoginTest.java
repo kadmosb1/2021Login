@@ -18,19 +18,19 @@ class LoginTest {
     public void authorizeTest () {
 
         login.authenticate ("user1", "1");
+        assertFalse (login.isAuthorized("product"));
         assertTrue (login.isAuthorized("customer"));
-        assertFalse (login.isAuthorized("invoice"));
-        assertTrue (login.isAuthorized("product"));
+        assertTrue (login.isAuthorized("invoice"));
 
         login.authenticate ("user2", "2");
+        assertTrue (login.isAuthorized("product"));
         assertFalse (login.isAuthorized("customer"));
         assertTrue (login.isAuthorized("invoice"));
-        assertTrue (login.isAuthorized("product"));
 
         login.authenticate ("user3", "3");
-        assertFalse (login.isAuthorized("invoice"));
-        assertFalse (login.isAuthorized("customer"));
         assertTrue (login.isAuthorized("product"));
+        assertTrue (login.isAuthorized("customer"));
+        assertTrue (login.isAuthorized("invoice"));
 
         login.logout ();
         assertFalse (login.isAuthorized("invoice"));
