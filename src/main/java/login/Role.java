@@ -27,6 +27,7 @@ class Role {
     public boolean userIsInRole (User user) {
 
         for (User u : users) {
+
             if (u == user) {
                 return true;
             }

@@ -1,9 +1,7 @@
-package Invoice;
+package invoice;
 /*
  * Een kleine ondernemer hoeft geen BTW aan zijn klanten in rekening te brengen.
  */
-
-import Invoice.Business;
 
 public class BusinessSmall extends Business {
 

@@ -48,7 +48,7 @@ public class Logging {
         String header = "";
         setLogFilename ();
 
-        if (logFileExists()) {
+        if (!logFileExists()) {
             header = String.format ("%-19s %-20s %s%n", "Date", "Gebruikersnaam", "Logging");
         }
 

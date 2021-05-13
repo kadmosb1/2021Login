@@ -1,4 +1,4 @@
-package Invoice;
+package invoice;
 
 import java.util.ArrayList;
 
@@ -42,7 +42,15 @@ public class Invoice {
         return invoice.toString ();
     }
 
+
     public void printInvoice (Customer customer, ArrayList<InvoiceLine> lines) {
-        System.out.print (getInvoiceString (customer, lines));
+
+        if (Login.isAuthenticated () && Login.isAuthorized ("invoice")) {
+            System.out.print (getInvoiceString(customer, lines));
+        }
+        else {
+            Logging.printLog ("Invoice:printInvoice - User is not allowed to print invoice");
+            System.out.print ("User is not allowed to print invoice");
+        }
     }
 }

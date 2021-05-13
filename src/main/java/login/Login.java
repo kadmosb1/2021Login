@@ -22,10 +22,12 @@ public class Login {
 
         roles = new ArrayList<> ();
         Role role1 = new Role("customer");
-        Role role2 = new Role("invoice");
-        Role role3 = new Role("product");
+        Role role2 = new Role("product");
+        Role role3 = new Role("invoice");
         role1.addUser (user1);
+        role1.addUser (user3);
         role2.addUser (user2);
+        role2.addUser (user3);
         role3.addUser (user1);
         role3.addUser (user2);
         role3.addUser (user3);
@@ -243,7 +245,7 @@ public class Login {
         return null;
     }
 
-    public boolean authorize (String roleName) {
+    public boolean isAuthorized (String roleName) {
 
         User user = getActiveUser ();
         Role role = getRole (roleName);

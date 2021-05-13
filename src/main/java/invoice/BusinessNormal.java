@@ -1,6 +1,4 @@
-package Invoice;
-
-import Invoice.Business;
+package invoice;
 
 /*
  * Een normale ondernemer is verplicht om BTW aan zijn klanten door te rekenen.

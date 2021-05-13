@@ -1,8 +1,4 @@
-package Invoice;
-
-import Invoice.Invoice;
-import Invoice.Customer;
-import Invoice.InvoiceLine;
+package invoice;
 
 import java.util.ArrayList;
 

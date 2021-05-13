@@ -18,24 +18,24 @@ class LoginTest {
     public void authorizeTest () {
 
         login.authenticate ("user1", "1");
-        assertTrue (login.authorize("customer"));
-        assertFalse (login.authorize("invoice"));
-        assertTrue (login.authorize("product"));
+        assertTrue (login.isAuthorized("customer"));
+        assertFalse (login.isAuthorized("invoice"));
+        assertTrue (login.isAuthorized("product"));
 
         login.authenticate ("user2", "2");
-        assertFalse (login.authorize("customer"));
-        assertTrue (login.authorize("invoice"));
-        assertTrue (login.authorize("product"));
+        assertFalse (login.isAuthorized("customer"));
+        assertTrue (login.isAuthorized("invoice"));
+        assertTrue (login.isAuthorized("product"));
 
         login.authenticate ("user3", "3");
-        assertFalse (login.authorize("invoice"));
-        assertFalse (login.authorize("customer"));
-        assertTrue (login.authorize("product"));
+        assertFalse (login.isAuthorized("invoice"));
+        assertFalse (login.isAuthorized("customer"));
+        assertTrue (login.isAuthorized("product"));
 
         login.logout ();
-        assertFalse (login.authorize("invoice"));
-        assertFalse (login.authorize("customer"));
-        assertFalse (login.authorize("product"));
+        assertFalse (login.isAuthorized("invoice"));
+        assertFalse (login.isAuthorized("customer"));
+        assertFalse (login.isAuthorized("product"));
     }
 
     @Test
