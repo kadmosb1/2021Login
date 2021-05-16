@@ -263,18 +263,14 @@ public class Login {
      */
     public boolean authenticate (String userName, String password) {
 
-        /*
-         * Als de ingelogde gebruiker de gebruiker met userName is, is hij al ingelogd.
-         */
+        // Als de ingelogde gebruiker de gebruiker met userName is, is hij al ingelogd.
         User user = getAuthenticatedUser ();
 
         if ((user != null) && (user.getUserName ().equals (userName))) {
             return true;
         }
 
-        /*
-         * Als de gebruiker niet bestaat, kan zij/hij ook niet inloggen.
-         */
+        // Als de gebruiker niet bestaat, kan zij/hij ook niet inloggen.
         user = getUser (userName);
 
         if (user == null) {
