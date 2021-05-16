@@ -1,5 +1,8 @@
 package invoice;
 
+/*
+ * Klant
+ */
 public class Customer {
 
     private String name;
@@ -9,6 +12,7 @@ public class Customer {
 
     public Customer (String name, String address, String zipcode, String city) {
 
+        // Alleen een ingelogde gebruiker die toegang heeft tot de gegevens van klanten, mag een nieuwe klant aanmaken.
         if (Login.isAuthenticated () && Login.isAuthorized ("customer")) {
             this.name = name;
             this.address = address;
@@ -23,6 +27,8 @@ public class Customer {
     @Override
     public String toString() {
 
+        // Alleen als een gebruiker bekend is die toegang heeft tot de gegevens van klanten, worden naam, adres en
+        // woonplaats terug gegeven.
         if (Login.isActive () && Login.isAuthorized ("customer")) {
             String customer = "";
             customer += InvoiceFormatter.getLine(false, name);

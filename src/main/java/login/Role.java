@@ -2,6 +2,9 @@ package login;
 
 import java.util.ArrayList;
 
+/*
+ * Rol voor autorisatie.
+ */
 class Role {
 
     private String name;
@@ -16,6 +19,9 @@ class Role {
         return name;
     }
 
+    /*
+     * Een gebruiker wordt aan een rol toegevoegd.
+     */
     public void addUser (User user) {
         users.add (user);
     }

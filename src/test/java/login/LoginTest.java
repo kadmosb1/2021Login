@@ -17,21 +17,34 @@ class LoginTest {
     @Test
     public void authorizeTest () {
 
+        /*
+         * Als user1 ingelogd is, heeft deze gebruiker volgens de database toegang tot data over klanten en facturen.
+         */
         login.authenticate ("user1", "1");
         assertFalse (login.isAuthorized("product"));
         assertTrue (login.isAuthorized("customer"));
         assertTrue (login.isAuthorized("invoice"));
 
+        /*
+         * Als user2 ingelogd is, heeft deze gebruiker volgens de database toegang tot data over producten en facturen.
+         */
         login.authenticate ("user2", "2");
         assertTrue (login.isAuthorized("product"));
         assertFalse (login.isAuthorized("customer"));
         assertTrue (login.isAuthorized("invoice"));
 
+        /*
+         * Als user3 ingelogd is, heeft deze gebruiker volgens de database toegang tot producten, klanten en facturen.
+         */
         login.authenticate ("user3", "3");
         assertTrue (login.isAuthorized("product"));
         assertTrue (login.isAuthorized("customer"));
         assertTrue (login.isAuthorized("invoice"));
 
+        /*
+         * Na uitloggen is er geen gebruiker meer actief en wordt de toegang tot alle onderdelen van de applicatie
+         * (voor zover die beschermd zijn met autorisatie) ontzegd.
+         */
         login.logout ();
         assertFalse (login.isAuthorized("invoice"));
         assertFalse (login.isAuthorized("customer"));

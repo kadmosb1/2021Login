@@ -1,7 +1,13 @@
 package invoice;
 
+/*
+ * Class voor het formatteren van een factuur (met header, ='s en footer).
+ */
 public class InvoiceFormatter {
 
+    /*
+     * De breedte van de factuur is vastgesteld op 72 karakers.
+     */
     private static final int WIDTH = 68;
 
     /*
@@ -12,7 +18,7 @@ public class InvoiceFormatter {
     }
 
     /*
-     * Een regel opent met een '=' en eindigt op positie 71 met een '='.
+     * Een regel opent met een '=' en eindigt op positie 72 met een '='.
      * Object... betekent dat er 0, 1 of meer parameters van het type Object worden meegegeven aan getLine.
      */
     public static String getLine (boolean rightAligned, String line, Object... args) {
@@ -26,7 +32,6 @@ public class InvoiceFormatter {
 
         // De regel opent met een '=' en als de regel rechts moet worden uitgelijnd, wordt de regel
         // links opgevuld met spaties.
-
         line = rightAligned ? trailingSpaces + line : line + trailingSpaces;
 
         // De regel wordt aangevuld met spaties en aan het einde met een '='.

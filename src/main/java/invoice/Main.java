@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Main {
 
+    /*
+     * Er worden 2 facturen getoond: 1 voor een kleine ondernemer en 1 voor een normale ondernemer.
+     */
     public static void main(String[] args) {
         Customer customer = new Customer("Testklant", "Teststraat 15", "2282 CD", "DELFT");
         ArrayList <InvoiceLine> lines = new ArrayList<> ();

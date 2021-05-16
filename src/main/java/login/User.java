@@ -16,6 +16,9 @@ class User {
         this.isAuthenticated = false;
     }
 
+    /*
+     * Ook als een gebruiker ingelogd is, is hij actief (bekend).
+     */
     public boolean isActive () {
         return isActive || isAuthenticated;
     }
@@ -28,6 +31,9 @@ class User {
         return isAuthenticated;
     }
 
+    /*
+     * Als het opgegeven password klopt, wordt de gebruiker ingelogd.
+     */
     public boolean authenticate (String password) {
 
         if (this.password.equals (password)) {
@@ -46,6 +52,9 @@ class User {
         return password;
     }
 
+    /*
+     * Een gebruiker wordt uitgelogd (en is niet meer actief).
+     */
     public void logout () {
         isActive = false;
         isAuthenticated = false;

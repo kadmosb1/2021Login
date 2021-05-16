@@ -1,5 +1,9 @@
 package invoice;
 
+/*
+ * Factuurregel. Voor elke regel in een factuur wordt in deze Class bijgehouden hoeveel eenheden van een product
+ * er verkocht zijn.
+ */
 public class InvoiceLine {
 
     private int numberOfProducts;

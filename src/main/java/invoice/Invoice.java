@@ -2,15 +2,20 @@ package invoice;
 
 import java.util.ArrayList;
 
+/*
+ * Factuur.
+ */
 public class Invoice {
 
     private static int nextInvoiceNumber = 0;
     private Business business;
 
+    // Voor het opstellen van een factuur moet bekend zijn of het om een kleine of een normale ondernemer gaat.
     public Invoice (Business business) {
         this.business = business;
     }
 
+    // Factuurnummers zijn deelbaar door 13.
     private int getNextInvoiceNumber () {
         nextInvoiceNumber += 13;
         return nextInvoiceNumber;
@@ -45,6 +50,7 @@ public class Invoice {
 
     public void printInvoice (Customer customer, ArrayList<InvoiceLine> lines) {
 
+        // Een factuur mag alleen worden opgesteld door een ingelogde gebruiker die daar rechten voor heeft.
         if (Login.isAuthenticated () && Login.isAuthorized ("invoice")) {
             System.out.print (getInvoiceString(customer, lines));
         }
